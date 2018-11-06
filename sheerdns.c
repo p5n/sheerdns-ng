@@ -358,10 +358,10 @@ part where we fill in the packet: */
     if (qclass != 1 /* class INET */ ) {
 	flags |= 4;		/* not supported */
 	goto empty_packet; }
-    if ((flags & 0x7800) == 1) {	/* inverse query */
+    if ((flags & 0x7800) == 0x0800) {	/* inverse query */
 	flags |= 4;		/* who supports this ?? */
 	goto empty_packet; }
-    if ((flags & 0x7800) == 2)	/* status request */
+    if ((flags & 0x7800) == 0x1000)	/* status request */
 	goto empty_packet;
     if ((flags & 0x7800) != 0)	/* standard query */
 	goto empty_packet;

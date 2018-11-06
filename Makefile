@@ -1,5 +1,4 @@
-
-CFLAGS=-Wall -g -O0 -ansi -pedantic
+CFLAGS=-Wall -g -O0 -ansi -pedantic -D_DEFAULT_SOURCE
 
 SRCS=$(wildcard *.c)
 

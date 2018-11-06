@@ -35,3 +35,4 @@ int string_present (char *s, char **a);
 
 #define issuspect(c)	((c) < ' ' || (c) > '~' || (c) == '/')
 
+void string_wash (unsigned char *p);

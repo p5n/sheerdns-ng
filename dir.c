@@ -53,7 +53,7 @@ try_reverse_in_arpa (char *query) {
     for (; k >= 0; k--)
 	if (k == 0 || query[k - 1] == '.') {
 	    strncat ((char *) new_query, (char *) query + k, c - k);
-	    k && strcat ((char *) new_query, ".");
+	    if(k) strcat ((char *) new_query, ".");
 	    c = --k; }
     return (char *) strdup (new_query); }
 
@@ -108,7 +108,7 @@ ftp.henry.test.com, user1.lab.chemsitry.test.com, etc. :
 	char *t;
 	if (qtype == REQ_SOA || qtype == REQ_NS)	/* probably a bad idea to wildcard these, so return */
 	    return NULL;
-	q = t = (char *) strdup (s);
+	q = t = (char *) strdup ((const char*)s);
 	while (*t && *t != '.')
 	    t++;
 	if (!*t || t == q || !(*--t = '*') || get_file_name (buf, sizeof (buf), qtype, (unsigned char *) t)

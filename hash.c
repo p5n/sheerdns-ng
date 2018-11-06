@@ -22,6 +22,7 @@
 #include <assert.h>
 #include <string.h>
 #include <time.h>
+#include <sys/stat.h>
 #include "hash.h"
 #include "dir.h"
 
@@ -43,7 +44,7 @@ main (int argc, char **argv) {
 	unsigned char *s;
 	s = (unsigned char *) hex_hash ((unsigned char *) argv[1]);
 	snprintf (buf, sizeof (buf), SHEERDNS_DIR "/%s/%s", s, argv[1]);
-	mkdir (buf);
+	mkdir (buf, 0755);
 	l = strlen ((char *) s);
 	write (1, s, l);
 	write (1, "\n", 1); }
