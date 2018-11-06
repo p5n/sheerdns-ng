@@ -26,7 +26,6 @@ sheerdns.ps:
 	groff -Tps -mandoc sheerdns.8 > sheerdns.ps
 
 install: all
-	install sheerdnshash sheerdns /usr/sbin/
-	install sheerdns.8 /usr/share/man/man8/
-	install sheerdns.8 /usr/man/man8/
-
+	install sheerdnshash sheerdns $(DESTDIR)/usr/sbin/
+	install sheerdns.8 $(DESTDIR)/usr/share/man/man8/
+	install sheerdns.8 $(DESTDIR)/usr/man/man8/
