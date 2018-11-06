@@ -66,10 +66,10 @@ get_file_name (char *buf, int len, int qtype, unsigned char *s) {
     s = (unsigned char *) try_reverse_in_arpa ((char *) s);
     sprintf(str, "%s/%s/%s/%s", "/", hex_hash (s), s, qtype_name[qtype]);
     if (*s) {
-	if ( (fd = open(str, O_RDONLY)) != -1 )
+	if ( (fd = open(str, O_RDONLY)) != -1 ) {
 		snprintf (buf, len, "/%s/%s/%s", hex_hash (s), s, qtype_name[qtype]);
 		close(fd);
-  	else
+	} else
 		snprintf (buf, len, "/default/%s", qtype_name[qtype]);
      } else {
 	snprintf (buf, len, "/%s", qtype_name[qtype]);
