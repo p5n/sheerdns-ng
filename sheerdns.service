@@ -1,0 +1,10 @@
+[Unit]
+Description=sheerdns service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/sheerdns
+
+[Install]
+WantedBy=multi-user.target
